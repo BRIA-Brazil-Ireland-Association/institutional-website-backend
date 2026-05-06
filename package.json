@@ -16,6 +16,8 @@
     "@payloadcms/db-postgres": "^3.0.0",
     "@payloadcms/next": "^3.0.0",
     "@payloadcms/richtext-lexical": "^3.0.0",
+    "cli-color": "^2.0.4",
+    "formdata-node": "^6.0.3",
     "graphql": "^16.9.0",
     "next": "^15.0.0",
     "payload": "^3.0.0",

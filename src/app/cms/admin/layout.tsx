@@ -9,6 +9,6 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
     children,
     config,
     importMap,
-    serverFunction: handleServerFunctions,
+    serverFunction: handleServerFunctions as any,
   })
 }
