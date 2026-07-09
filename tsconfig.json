@@ -1,22 +1,44 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "lib": ["dom", "dom.iterable", "es2022"],
-    "allowJs": false,
-    "skipLibCheck": true,
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "lib": ["ES2020"],
+    "target": "ES2019",
     "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
     "incremental": true,
-    "plugins": [{ "name": "next" }],
-    "baseUrl": ".",
-    "paths": { "@/*": ["./src/*"] }
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "noEmitOnError": true,
+    "noImplicitThis": true,
+    "outDir": "dist",
+    "rootDir": "."
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    // Include root files
+    "./",
+    // Include all ts files
+    "./**/*.ts",
+    // Include all js files
+    "./**/*.js",
+    // Force the JSON files in the src folder to be included
+    "src/**/*.json"
+  ],
+
+  "exclude": [
+    "node_modules/",
+    "build/",
+    "dist/",
+    ".cache/",
+    ".tmp/",
+    ".strapi/",
+
+    // Do not include admin files in the server compilation
+    "src/admin/",
+    // Do not include test files
+    "**/*.test.*",
+    // Do not include plugins in the server compilation
+    "src/plugins/**"
+  ]
 }

@@ -1,100 +1,61 @@
-# BRIA Backend
+# 🚀 Getting started with Strapi
 
-Backend-only repository for BRIA, prepared as a headless CMS and integration layer for the institutional website.
+Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
 
-## Responsibilities
-- Payload CMS admin
-- REST API and GraphQL API
-- localized content in `en` and `pt-BR`
-- Stripe checkout and webhook endpoints
-- PostgreSQL connection via environment variables
-- Vercel-friendly Next.js runtime
+### `develop`
 
-## Main routes
-- CMS admin: `/cms/admin`
-- Payload REST: `/cms/api`
-- Payload GraphQL: `/cms/api/graphql`
-- GraphQL Playground: `/cms/api/graphql-playground`
-- Health check: `/api/health`
-- Stripe checkout: `/api/stripe/checkout`
-- Stripe products: `/api/stripe/products`
-- Stripe webhook: `/api/stripe/webhook`
+Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
 
-## Local setup
-1. Copy `.env.example` to `.env`
-2. Fill in PostgreSQL and Stripe values
-3. Install dependencies
-4. Start PostgreSQL
-5. Run the app
-
-```bash
-npm install
-docker-compose up -d postgres
-npm run dev
+```
+npm run develop
+# or
+yarn develop
 ```
 
-## Docker
-```bash
-docker-compose up -d --build
+### `start`
+
+Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
+
+```
+npm run start
+# or
+yarn start
 ```
 
-## Required env vars
-- `DATABASE_URL`
-- `PAYLOAD_SECRET`
-- `NEXT_PUBLIC_SERVER_URL`
-- `SERVER_ACTIONS_ALLOWED_ORIGINS`
-- `STRIPE_SECRET_KEY`
-- `STRIPE_WEBHOOK_SECRET`
+### `build`
 
-## Example request
-```bash
-curl "http://localhost:3000/cms/api/pages?where[slug][equals]=home&locale=pt-BR"
+Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
+
+```
+npm run build
+# or
+yarn build
 ```
 
-## Example multilingual response
-```json
-{
-  "docs": [
-    {
-      "slug": "home",
-      "title": "Bem-vindo à BRIA",
-      "hero": {
-        "headline": "Conectando brasileiros à vida profissional na Irlanda"
-      }
-    }
-  ]
-}
+## ⚙️ Deployment
+
+Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
+
+```
+yarn strapi deploy
 ```
 
-## Stripe checkout example
-```bash
-curl -X POST "http://localhost:3000/api/stripe/checkout" \
-  -H "Content-Type: application/json" \
-  -d '{"priceId":"price_123","quantity":1,"locale":"en"}'
-```
+## 📚 Learn more
 
-## Delivery notes
-This repository is the backend counterpart of the BRIA split architecture.
-The frontend should live in a separate repository and consume this API through the CMS and Stripe endpoints documented here.
+- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
+- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
+- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
+- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
+- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
 
-## Status de execução local
+Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
 
-| Serviço | URL | Status |
-|---|---|---|
-| **institutional-website-frontend** | http://localhost:3000 | ✅ 200 (redireciona para `/en`) |
-| **institutional-website-backend** | http://localhost:3001 | ✅ `{"ok":true}` em `/api/health` |
+## ✨ Community
 
-### O que foi feito
+- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
+- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
+- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
 
-- Criados os arquivos `.env` para ambos os projetos (backend na **porta 3001**, frontend na **3000**)
-- `NEXT_PUBLIC_CMS_URL` do frontend aponta para `http://localhost:3001/cms/api`
-- Dependências instaladas com `npm install`
-- Ambos iniciados com `npm run dev`
+---
 
-> **Atenção:** O backend precisa do PostgreSQL rodando via Docker. Quando o Docker/Rancher Desktop estiver ativo, execute:
->
-> ```bash
-> docker compose up -d postgres
-> ```
->
-> O Payload CMS admin estará disponível em http://localhost:3001/cms/admin após o banco estar acessível.
+<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>

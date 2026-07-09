@@ -1,37 +1,44 @@
 {
-  "name": "bria-backend",
+  "name": "my-strapi-project",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
+  "description": "A Strapi application",
   "scripts": {
-    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
-    "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
-    "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
-    "lint": "next lint",
-    "payload": "payload",
-    "payload:types": "payload generate:types",
-    "payload:importmap": "payload generate:importmap"
+    "build": "strapi build",
+    "console": "strapi console",
+    "deploy": "strapi deploy",
+    "dev": "strapi develop",
+    "develop": "strapi develop",
+    "seed:example": "node ./scripts/seed.js",
+    "start": "strapi start",
+    "strapi": "strapi",
+    "upgrade": "npx @strapi/upgrade latest",
+    "upgrade:dry": "npx @strapi/upgrade latest --dry"
   },
   "dependencies": {
-    "@payloadcms/db-postgres": "^3.0.0",
-    "@payloadcms/next": "^3.0.0",
-    "@payloadcms/richtext-lexical": "^3.0.0",
-    "cli-color": "^2.0.4",
-    "formdata-node": "^6.0.3",
-    "graphql": "^16.9.0",
-    "next": "^15.0.0",
-    "payload": "^3.0.0",
-    "pg": "^8.12.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "stripe": "^17.4.0"
+    "@strapi/plugin-cloud": "5.50.1",
+    "@strapi/plugin-users-permissions": "5.50.1",
+    "@strapi/strapi": "5.50.1",
+    "better-sqlite3": "12.8.0",
+    "fs-extra": "^10.0.0",
+    "mime-types": "^2.1.27",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.0.0",
+    "styled-components": "^6.0.0"
   },
   "devDependencies": {
-    "@types/node": "^22.8.0",
-    "@types/react": "^18.3.3",
-    "cross-env": "^7.0.3",
-    "eslint": "^9.12.0",
-    "eslint-config-next": "^15.0.0",
-    "typescript": "^5.6.3"
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=20.0.0 <=26.x.x",
+    "npm": ">=6.0.0"
+  },
+  "strapi": {
+    "uuid": "1571a8d8-c5e5-4c2a-be83-558c84879065",
+    "installId": "581297b30e43ab33632f3fb23e7e729673d5d9aa2dbfe3472ada3b1008339b81"
   }
 }
