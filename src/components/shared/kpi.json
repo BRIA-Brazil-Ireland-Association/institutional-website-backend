@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_kpis",
+  "info": {
+    "displayName": "Kpi",
+    "icon": "check"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

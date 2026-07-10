@@ -1,5 +1,33 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedHeroBanner extends Struct.ComponentSchema {
+  collectionName: 'components_shared_hero_banners';
+  info: {
+    displayName: 'HeroBanner';
+    icon: 'chartBubble';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    kpis: Schema.Attribute.Component<'shared.kpi', true>;
+    label: Schema.Attribute.String;
+    subtitle: Schema.Attribute.RichText;
+    title: Schema.Attribute.RichText;
+  };
+}
+
+export interface SharedKpi extends Struct.ComponentSchema {
+  collectionName: 'components_shared_kpis';
+  info: {
+    displayName: 'Kpi';
+    icon: 'check';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    label: Schema.Attribute.String;
+    value: Schema.Attribute.String;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -8,6 +36,18 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
   attributes: {
     file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+  };
+}
+
+export interface SharedMenuItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_menu_items';
+  info: {
+    displayName: 'menuItem';
+    icon: 'bulletList';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    url: Schema.Attribute.String;
   };
 }
 
@@ -65,7 +105,10 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export namespace Public {
     export interface ComponentSchemas {
+      'shared.hero-banner': SharedHeroBanner;
+      'shared.kpi': SharedKpi;
       'shared.media': SharedMedia;
+      'shared.menu-item': SharedMenuItem;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
