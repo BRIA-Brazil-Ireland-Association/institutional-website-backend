@@ -44,6 +44,36 @@
       },
       "component": "shared.parners-banner",
       "repeatable": false
+    },
+    "aboutBanner": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.about-banner",
+      "repeatable": false
+    },
+    "teamBanner": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.team-banner",
+      "repeatable": false
+    },
+    "eventsBanner": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.events-banner",
+      "repeatable": false
     }
   }
 }
