@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_parners_banners",
+  "info": {
+    "displayName": "partnersBanner",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "partners": {
+      "type": "component",
+      "component": "shared.image-link",
+      "repeatable": true
+    },
+    "title": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

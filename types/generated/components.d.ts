@@ -1,5 +1,23 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedFooter extends Struct.ComponentSchema {
+  collectionName: 'components_shared_footers';
+  info: {
+    displayName: 'footer';
+    icon: 'bulletList';
+  };
+  attributes: {
+    communityLinks: Schema.Attribute.Component<'shared.link', true>;
+    communityTitle: Schema.Attribute.String;
+    contactTitle: Schema.Attribute.String;
+    informationLinks: Schema.Attribute.Component<'shared.link', true>;
+    informationTitle: Schema.Attribute.String;
+    navigationLinks: Schema.Attribute.Component<'shared.link', true>;
+    navigationTitle: Schema.Attribute.String;
+    socialMediaTitle: Schema.Attribute.String;
+  };
+}
+
 export interface SharedHeroBanner extends Struct.ComponentSchema {
   collectionName: 'components_shared_hero_banners';
   info: {
@@ -15,6 +33,18 @@ export interface SharedHeroBanner extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedImageLink extends Struct.ComponentSchema {
+  collectionName: 'components_shared_image_links';
+  info: {
+    displayName: 'imageLink';
+    icon: 'crown';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface SharedKpi extends Struct.ComponentSchema {
   collectionName: 'components_shared_kpis';
   info: {
@@ -25,6 +55,18 @@ export interface SharedKpi extends Struct.ComponentSchema {
     icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     label: Schema.Attribute.String;
     value: Schema.Attribute.String;
+  };
+}
+
+export interface SharedLink extends Struct.ComponentSchema {
+  collectionName: 'components_shared_links';
+  info: {
+    displayName: 'link';
+    icon: 'bulletList';
+  };
+  attributes: {
+    href: Schema.Attribute.String;
+    label: Schema.Attribute.String;
   };
 }
 
@@ -48,6 +90,18 @@ export interface SharedMenuItem extends Struct.ComponentSchema {
   attributes: {
     label: Schema.Attribute.String;
     url: Schema.Attribute.String;
+  };
+}
+
+export interface SharedParnersBanner extends Struct.ComponentSchema {
+  collectionName: 'components_shared_parners_banners';
+  info: {
+    displayName: 'partnersBanner';
+    icon: 'bulletList';
+  };
+  attributes: {
+    partners: Schema.Attribute.Component<'shared.image-link', true>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -105,10 +159,14 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export namespace Public {
     export interface ComponentSchemas {
+      'shared.footer': SharedFooter;
       'shared.hero-banner': SharedHeroBanner;
+      'shared.image-link': SharedImageLink;
       'shared.kpi': SharedKpi;
+      'shared.link': SharedLink;
       'shared.media': SharedMedia;
       'shared.menu-item': SharedMenuItem;
+      'shared.parners-banner': SharedParnersBanner;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
