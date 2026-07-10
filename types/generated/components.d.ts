@@ -15,6 +15,22 @@ export interface SharedAboutBanner extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedAboutCard extends Struct.ComponentSchema {
+  collectionName: 'components_shared_about_cards';
+  info: {
+    displayName: 'aboutCard';
+    icon: 'bulletList';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    title: Schema.Attribute.Text;
+  };
+}
+
 export interface SharedEventsBanner extends Struct.ComponentSchema {
   collectionName: 'components_shared_events_banners';
   info: {
@@ -201,6 +217,7 @@ declare module '@strapi/strapi' {
   export namespace Public {
     export interface ComponentSchemas {
       'shared.about-banner': SharedAboutBanner;
+      'shared.about-card': SharedAboutCard;
       'shared.events-banner': SharedEventsBanner;
       'shared.footer': SharedFooter;
       'shared.hero-banner': SharedHeroBanner;
