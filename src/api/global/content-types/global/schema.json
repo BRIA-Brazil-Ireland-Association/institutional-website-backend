@@ -122,6 +122,16 @@
         "videos",
         "audios"
       ]
+    },
+    "menus": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.link",
+      "repeatable": true
     }
   }
 }
