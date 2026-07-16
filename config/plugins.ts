@@ -39,14 +39,6 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Plugin =>
       },
     },
   },
-  'ai-sdk': {
-    enabled: true,
-    config: {
-      anthropicApiKey: env('OPENAI_API_KEY'),
-      provider: 'openai',
-      chatModel: env('OPENAI_MODEL', 'gpt-4o'),
-    },
-  },
 });
 
 export default config;
