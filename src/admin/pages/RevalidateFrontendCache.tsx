@@ -12,7 +12,7 @@ const RevalidateFrontendCachePage = () => {
     setLoading(true);
 
     try {
-      await get('/revalidate-frontend-cache');
+      await get('/api/revalidate-frontend-cache');
 
       toggleNotification({
         type: 'success',
