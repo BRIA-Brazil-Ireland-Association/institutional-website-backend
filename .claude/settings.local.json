@@ -1,6 +1,21 @@
 {
+  "permissions": {
+    "allow": [
+      "mcp__render__get_selected_workspace",
+      "mcp__render__list_workspaces",
+      "mcp__render__list_services",
+      "mcp__render__get_service",
+      "mcp__render__list_postgres_instances",
+      "mcp__render__query_render_postgres",
+      "mcp__render__list_logs",
+      "Bash(command -v sqlite3)",
+      "Bash(sqlite3 .tmp/data.db \"select url from files limit 3;\")",
+      "Bash(node -e ' *)",
+      "Bash(node *)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "supabase"
-  ],
-  "enableAllProjectMcpServers": true
+  ]
 }
