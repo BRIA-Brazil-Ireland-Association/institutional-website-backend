@@ -33,6 +33,30 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Plugin =>
   },
   upload: {
     config: {
+      provider: 'aws-s3',
+      providerOptions: {
+        baseUrl: env('SUPABASE_STORAGE_PUBLIC_URL'),
+        s3Options: {
+          credentials: {
+            accessKeyId: env('SUPABASE_STORAGE_ACCESS_KEY'),
+            secretAccessKey: env('SUPABASE_STORAGE_SECRET_ACCESS_KEY'),
+          },
+          endpoint: env('SUPABASE_STORAGE_ENDPOINT'),
+          region: env('SUPABASE_STORAGE_REGION'),
+          forcePathStyle: true,
+          params: {
+            Bucket: env('SUPABASE_STORAGE_BUCKET'),
+            // Supabase's S3-compatible layer doesn't support object ACLs (like Cloudflare R2);
+            // omitting this prevents the provider from defaulting to ACL: 'public-read'.
+            ACL: undefined,
+          },
+        },
+      },
+      actionOptions: {
+        upload: {},
+        uploadStream: {},
+        delete: {},
+      },
       security: {
         allowedTypes: allowedMediaTypes,
         deniedTypes: deniedExecutableTypes,
